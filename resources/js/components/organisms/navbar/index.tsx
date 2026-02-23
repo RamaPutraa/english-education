@@ -1,7 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Menu, Moon, Sun } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
-import { useAppearance } from '@/hooks/use-appearance';
+
 import { Button } from '@/components/ui/button';
 import {
     NavigationMenu,
@@ -25,7 +25,6 @@ import { dashboard, login, register } from '@/routes';
 
 // Import logo assets
 import logoLight from '@/components/images/Mula Study_Main_Transparent_72ppi_Blue.png';
-import logoDark from '@/components/images/Mula Study_Main_Transparent_72ppi_White.png';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface NavbarProps {
@@ -102,25 +101,6 @@ function ListItem({
     );
 }
 
-// ─── Theme Toggle Button ──────────────────────────────────────────────────────
-// function ThemeToggle({ className = '' }: { className?: string }) {
-//     const { resolvedAppearance, updateAppearance } = useAppearance();
-//     const isDark = resolvedAppearance === 'dark';
-
-//     return (
-//         <Button
-//             variant="ghost"
-//             size="icon"
-//             aria-label={isDark ? 'Ganti ke mode terang' : 'Ganti ke mode gelap'}
-//             className={cn('relative', className)}
-//             onClick={() => updateAppearance(isDark ? 'light' : 'dark')}
-//         >
-//             <Sun className="h-4 w-4 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-//             <Moon className="absolute h-4 w-4 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-//         </Button>
-//     );
-// }
-
 // ─── Navbar Component ─────────────────────────────────────────────────────────
 export default function Navbar({ canRegister = true }: NavbarProps) {
     const { auth } = usePage().props as { auth: { user?: { name: string } } };
@@ -134,12 +114,7 @@ export default function Navbar({ canRegister = true }: NavbarProps) {
                     <img
                         src={logoLight}
                         alt="Mula Study"
-                        className="h-40 w-auto object-contain dark:hidden"
-                    />
-                    <img
-                        src={logoDark}
-                        alt="Mula Study"
-                        className="hidden h-40 w-auto object-contain dark:block"
+                        className="h-40 w-auto object-contain"
                     />
                 </Link>
 
@@ -213,12 +188,7 @@ export default function Navbar({ canRegister = true }: NavbarProps) {
                                         <img
                                             src={logoLight}
                                             alt="Mula Study"
-                                            className="w-40 object-contain dark:hidden"
-                                        />
-                                        <img
-                                            src={logoDark}
-                                            alt="Mula Study"
-                                            className="hidden h-7 w-auto object-contain dark:block"
+                                            className="w-40 object-contain"
                                         />
                                     </Link>
                                 </SheetTitle>
