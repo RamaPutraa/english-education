@@ -16,7 +16,7 @@ export default function Welcome({
 
     return (
         <>
-            <Head title="Welcome" />
+            <Head title="Home" />
             <div className="flex min-h-screen flex-col bg-background">
                 <Navbar canRegister={canRegister} />
 
